@@ -5,26 +5,26 @@ import Button from './components/Button/Button'
 const App = () => {
     const [ counter, setCounter ] = useState(0)
   
-    const increaseByOne = () => setCounter(counter + 1)
-  
-    const decreaseByOne = () => setCounter(counter - 1)
-    const setToZero = () => setCounter(0)
+    const changeCount = (delta) => setCounter(counter + delta)
   
     return (
       <div>
         <Display counter={counter}/>
   
         <Button
-          handleClick={increaseByOne}
+          changeCount={changeCount}
           text='plus'
+          delta = {1}
         />
         <Button
-          handleClick={setToZero}
+          changeCount={changeCount}
           text='zero'
+          delta = {0 - counter}
         />     
         <Button
-          handleClick={decreaseByOne}
+          changeCount={changeCount}
           text='minus'
+          delta = {-1}
         />           
       </div>
     )
