@@ -1,0 +1,47 @@
+@baseurl = http://localhost:3001
+
+### Get all jokes GET 
+{{baseurl}}/jokes  
+
+### Get a joke by id OK 
+GET {{baseurl}}/jokes/6461f476d9a9da9dbeade34e  
+
+### Get a joke by id KO 
+GET {{baseurl}}/jokes/6461f476d9a9da9dbeade84e  
+
+### Create a joke OK 
+POST {{baseurl}}/jokes
+Content-Type: application/json  
+
+{     
+    "question": "What do you call a cow with no legs?",     
+    "answer": "Ground beef",     
+    "category": "animal" 
+    }  
+
+### Create a joke KO 
+POST {{baseurl}}/jokes 
+Content-Type: application/json  
+
+{     
+    "question": "b",
+    "answer": "Ground beef",     
+    "category": "animal" 
+    }   
+
+### Delete a joke OK/KO 
+DELETE http://localhost:3001/jokes/6461f476d9a9da9dbeade34e
+
+###Get all scores
+GET {{baseurl}}/scores
+
+###Create a score
+POST {{baseurl}}/scores
+Content-Type: application/json
+
+{
+    "username": "test",
+    "date": "2021-01-01",
+    "joke":"6461f476d9a9da9dbeade34e",
+    "score": 100
+}
